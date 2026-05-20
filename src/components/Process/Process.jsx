@@ -33,11 +33,7 @@ const steps = [
     img: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=700&q=75',
     desc: 'Continuous refinement based on real-time data insights. We test, learn, and improve week over week to maximize results.',
   },
-  {
-    num: '05', icon: 'ti-file-description', title: 'Reporting', tag: 'Monthly',
-    img: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=700&q=75',
-    desc: 'Transparent reporting with clear ROI metrics, insights, and next-step recommendations. No jargon — just clarity.',
-  },
+
 ];
 
 const whys = [
