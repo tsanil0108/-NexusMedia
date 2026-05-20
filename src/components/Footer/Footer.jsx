@@ -1,0 +1,71 @@
+import React from 'react';
+import { Link } from 'react-router-dom';
+import './Footer.css';
+
+const nav = [
+  { label: 'Home',     to: '/'        },
+  { label: 'About',    to: '/about'   },
+  { label: 'Services', to: '/services'},
+  { label: 'Vision',   to: '/vision'  },
+  { label: 'Process',  to: '/process' },
+  { label: 'Clients',  to: '/clients' },
+  { label: 'Contact',  to: '/contact' },
+];
+
+const services = [
+  'Digital Marketing', 'Influencer Marketing', 'Content Production',
+  'Brand Activation',  'Performance Marketing', 'Strategy & Consulting',
+];
+
+export default function Footer() {
+  return (
+    <footer className="footer">
+      <div className="container">
+
+        <div className="footer__top">
+          <div className="footer__brand">
+            <Link to="/" className="footer__logo">
+              <span className="footer__logo-mark">N</span>
+              <span className="footer__logo-text">NexusMedia</span>
+            </Link>
+            <p className="footer__tagline">
+              Integrated media & marketing agency.<br />
+              Building brands that actually matter.
+            </p>
+            <div className="footer__contact-mini">
+              <span>📍 Mumbai, Maharashtra</span>
+              <span>📧 hello@nexusmedia.in</span>
+              <span>📞 +91 98765 43210</span>
+            </div>
+          </div>
+
+          <div className="footer__col">
+            <h6 className="footer__col-title">Navigate</h6>
+            {nav.map(l => (
+              <Link key={l.to} to={l.to} className="footer__link">{l.label}</Link>
+            ))}
+          </div>
+
+          <div className="footer__col">
+            <h6 className="footer__col-title">Services</h6>
+            {services.map(s => (
+              <span key={s} className="footer__link footer__link--plain">{s}</span>
+            ))}
+          </div>
+
+          <div className="footer__col">
+            <h6 className="footer__col-title">Let's Talk</h6>
+            <p className="footer__col-desc">Ready to grow your brand? We'd love to hear from you.</p>
+            <Link to="/contact" className="btn-primary" style={{ marginTop: 20 }}>Start a Project →</Link>
+          </div>
+        </div>
+
+        <div className="footer__bottom">
+          <span className="footer__copy">© {new Date().getFullYear()} NexusMedia. All rights reserved.</span>
+          <span className="footer__copy">Made with ♥ in Mumbai</span>
+        </div>
+
+      </div>
+    </footer>
+  );
+}
