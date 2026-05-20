@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './Footer.css';
+import logo from '../../assets/logo.png';
 
 const nav = [
   { label: 'Home',     to: '/'        },
@@ -25,8 +26,8 @@ export default function Footer() {
         <div className="footer__top">
           <div className="footer__brand">
             <Link to="/" className="footer__logo">
-              <span className="footer__logo-mark">N</span>
-              <span className="footer__logo-text">NexusMedia</span>
+              <img src={logo} alt="Influgrow Media" className="footer__logo-img" />
+              <span className="footer__logo-name">Influgrow Media</span>
             </Link>
             <p className="footer__tagline">
               Integrated media & marketing agency.<br />
@@ -34,7 +35,7 @@ export default function Footer() {
             </p>
             <div className="footer__contact-mini">
               <span>📍 Mumbai, Maharashtra</span>
-              <span>📧 hello@nexusmedia.in</span>
+              <span>📧 hello@influgrowmedia.in</span>
               <span>📞 +91 98765 43210</span>
             </div>
           </div>
@@ -61,7 +62,7 @@ export default function Footer() {
         </div>
 
         <div className="footer__bottom">
-          <span className="footer__copy">© {new Date().getFullYear()} NexusMedia. All rights reserved.</span>
+          <span className="footer__copy">© {new Date().getFullYear()} Influgrow Media. All rights reserved.</span>
           <span className="footer__copy">Made with ♥ in Mumbai</span>
         </div>
 

@@ -1,5 +1,14 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React from 'react';
 import './Clients.css';
+
+const heroImages = [
+  'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1600&q=80',
+  'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=1600&q=80',
+  'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=1600&q=80',
+  'https://images.unsplash.com/photo-1552664730-d307ca884978?w=1600&q=80',
+  'https://images.unsplash.com/photo-1515187029135-18ee286d815b?w=1600&q=80',
+  'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1600&q=80',
+];
 
 const stats = [
   { num: 50,  suffix: '+',   label: 'Brand Partners'      },
@@ -10,22 +19,36 @@ const stats = [
 
 const row1 = [
   { name: 'NovaBrand',   dot: 'dot-violet' }, { name: 'ZenithCo',   dot: 'dot-gold'   },
-  { name: 'PeakMedia',  dot: 'dot-coral'  }, { name: 'StellarX',   dot: 'dot-teal'   },
-  { name: 'CraftHouse', dot: 'dot-lime'   }, { name: 'UrbanEdge',  dot: 'dot-indigo' },
-  { name: 'FusionLabs', dot: 'dot-violet' }, { name: 'PrimeWave',  dot: 'dot-amber'  },
+  { name: 'PeakMedia',   dot: 'dot-coral'  }, { name: 'StellarX',   dot: 'dot-teal'   },
+  { name: 'CraftHouse',  dot: 'dot-lime'   }, { name: 'UrbanEdge',  dot: 'dot-indigo' },
+  { name: 'FusionLabs',  dot: 'dot-violet' }, { name: 'PrimeWave',  dot: 'dot-amber'  },
 ];
 const row2 = [
-  { name: 'BrightPath',  dot: 'dot-pink'   }, { name: 'Luminary',    dot: 'dot-gold'   },
-  { name: 'SwiftAds',    dot: 'dot-teal'   }, { name: 'NexGen',      dot: 'dot-coral'  },
-  { name: 'ArcStudio',   dot: 'dot-violet' }, { name: 'VortexMkt',   dot: 'dot-lime'   },
-  { name: 'EliteReach',  dot: 'dot-amber'  }, { name: 'MotionCo',    dot: 'dot-indigo' },
+  { name: 'BrightPath',  dot: 'dot-pink'   }, { name: 'Luminary',   dot: 'dot-gold'   },
+  { name: 'SwiftAds',    dot: 'dot-teal'   }, { name: 'NexGen',     dot: 'dot-coral'  },
+  { name: 'ArcStudio',   dot: 'dot-violet' }, { name: 'VortexMkt',  dot: 'dot-lime'   },
+  { name: 'EliteReach',  dot: 'dot-amber'  }, { name: 'MotionCo',   dot: 'dot-indigo' },
 ];
 
 const testimonials = [
-  { quote: 'NexusMedia completely transformed our digital presence. Their strategic approach and creative execution drove a 3x increase in qualified leads within just 3 months.', name: 'Priya Sharma', role: 'CMO, ZenithCo', initials: 'PS' },
-  { quote: 'What sets them apart is how deeply they understand your business before recommending anything. The campaigns felt like they were built for us — because they were.', name: 'Rahul Mehta',  role: 'Founder, NovaBrand', initials: 'RM' },
-  { quote: 'Their influencer campaigns for our FMCG launch were flawless. Authentic partnerships, measurable reach, and a team that truly cares about results.', name: 'Anita Desai',  role: 'Marketing Head, CraftHouse', initials: 'AD' },
+  {
+    img: 'https://images.unsplash.com/photo-1556761175-4b46a572b786?w=700&q=75',
+    quote: 'NexusMedia completely transformed our digital presence. Their strategic approach drove a 3x increase in qualified leads within just 3 months.',
+    name: 'Priya Sharma', role: 'CMO, ZenithCo', initials: 'PS',
+  },
+  {
+    img: 'https://images.unsplash.com/photo-1542744094-24638eff58bb?w=700&q=75',
+    quote: 'What sets them apart is how deeply they understand your business before recommending anything. The campaigns felt like they were built for us.',
+    name: 'Rahul Mehta', role: 'Founder, NovaBrand', initials: 'RM',
+  },
+  {
+    img: 'https://images.unsplash.com/photo-1515187029135-18ee286d815b?w=700&q=75',
+    quote: 'Their influencer campaigns for our FMCG launch were flawless. Authentic partnerships, measurable reach, and a team that truly cares.',
+    name: 'Anita Desai', role: 'Marketing Head, CraftHouse', initials: 'AD',
+  },
 ];
+
+import { useRef, useState, useEffect } from 'react';
 
 function CountUp({ target, suffix }) {
   const [val, setVal] = useState(0);
@@ -49,7 +72,7 @@ function CountUp({ target, suffix }) {
     return () => observer.disconnect();
   }, [target]);
 
-  return <span ref={ref}>{val}<span>{suffix}</span></span>;
+  return <span ref={ref}>{val}<span className="stat-suffix">{suffix}</span></span>;
 }
 
 function MarqueeRow({ brands, cls }) {
@@ -70,18 +93,32 @@ export default function Clients() {
   return (
     <div className="page">
 
-      {/* HERO */}
+      {/* HERO SLIDESHOW */}
       <section className="clients__hero">
-        <span className="tag">Clients & Partners</span>
-        <h1 className="section-title">Brands That Trust Us</h1>
-        <p className="section-desc">From emerging startups to established names — we've helped brands across industries grow their presence and reach.</p>
+        {heroImages.map((img, i) => (
+          <div
+            key={i}
+            className="clients__slide"
+            style={{ backgroundImage: `url(${img})`, animationDelay: `${i * 5}s` }}
+          />
+        ))}
+        <div className="clients__overlay" />
+        <div className="container clients__hero-content">
+          <span className="c-eyebrow c-eyebrow--light">Clients & Partners</span>
+          <h1 className="clients__hero-title">
+            Brands That <em>Trust Us</em>
+          </h1>
+          <p className="clients__hero-desc">
+            From emerging startups to established names — we've helped brands across industries grow their presence and reach.
+          </p>
+        </div>
       </section>
 
       {/* STATS */}
       <section className="clients__stats-section">
         <div className="container">
-          <span className="tag">By The Numbers</span>
-          <h2 className="section-title">Results That Speak</h2>
+          <span className="c-eyebrow">By The Numbers</span>
+          <h2 className="clients__sec-title">Results That <em>Speak</em></h2>
           <div className="clients__stats-grid">
             {stats.map((s, i) => (
               <div className="clients__stat" key={i}>
@@ -98,8 +135,8 @@ export default function Clients() {
       {/* MARQUEE */}
       <section className="clients__marquee-section">
         <div className="container">
-          <span className="tag">Partner Brands</span>
-          <h2 className="section-title">50+ Brands Across India</h2>
+          <span className="c-eyebrow">Partner Brands</span>
+          <h2 className="clients__sec-title">50+ Brands Across <em>India</em></h2>
         </div>
         <div style={{ marginTop: 48 }}>
           <div className="marquee__wrap">
@@ -117,17 +154,20 @@ export default function Clients() {
       {/* TESTIMONIALS */}
       <section className="clients__testi">
         <div className="container">
-          <span className="tag">What Clients Say</span>
-          <h2 className="section-title">Don't Take Our Word For It</h2>
+          <span className="c-eyebrow">What Clients Say</span>
+          <h2 className="clients__sec-title">Don't Take Our <em>Word For It</em></h2>
           <div className="clients__testi-grid">
             {testimonials.map((t, i) => (
               <div className="testi__card" key={i}>
-                <p className="testi__quote">"{t.quote}"</p>
-                <div className="testi__author">
-                  <div className="testi__avatar">{t.initials}</div>
-                  <div>
-                    <div className="testi__name">{t.name}</div>
-                    <div className="testi__role">{t.role}</div>
+                <img className="testi__card-img" src={t.img} alt={t.name} />
+                <div className="testi__body">
+                  <p className="testi__quote">"{t.quote}"</p>
+                  <div className="testi__author">
+                    <div className="testi__avatar">{t.initials}</div>
+                    <div>
+                      <div className="testi__name">{t.name}</div>
+                      <div className="testi__role">{t.role}</div>
+                    </div>
                   </div>
                 </div>
               </div>

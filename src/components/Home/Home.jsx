@@ -2,6 +2,14 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './Home.css';
 
+const heroImages = [
+  'https://images.unsplash.com/photo-1552664730-d307ca884978?w=1600&q=80',
+  'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=1600&q=80',
+  'https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=1600&q=80',
+  'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1600&q=80',
+  'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1600&q=80',
+];
+
 const tickerItems = [
   'Digital Marketing','✦','Influencer Collab','✦','Content Studio','✦',
   'Brand Activation','✦','Programmatic Ads','✦','Performance Media','✦',
@@ -22,12 +30,12 @@ const stats = [
 ];
 
 const services = [
-  { icon: '📡', name: 'Programmatic Ads'   },
+  { icon: '📡', name: 'Programmatic Ads'    },
   { icon: '🤝', name: 'Influencer Marketing' },
-  { icon: '🎬', name: 'Content Production' },
-  { icon: '📊', name: 'Performance Media'  },
-  { icon: '📱', name: 'Social Media'       },
-  { icon: '🚀', name: 'Brand Activation'   },
+  { icon: '🎬', name: 'Content Production'  },
+  { icon: '📊', name: 'Performance Media'   },
+  { icon: '📱', name: 'Social Media'        },
+  { icon: '🚀', name: 'Brand Activation'    },
 ];
 
 export default function Home() {
@@ -38,8 +46,15 @@ export default function Home() {
 
       {/* HERO */}
       <section className="hero">
-        <div className="hero__bg" />
-        <div className="hero__grid" />
+
+        {heroImages.map((img, i) => (
+          <div
+            key={i}
+            className="hero__slide"
+            style={{ backgroundImage: `url(${img})`, animationDelay: `${i * 5}s` }}
+          />
+        ))}
+        <div className="hero__overlay" />
 
         <div className="hero__ticker">
           <div className="hero__ticker-track">
@@ -78,6 +93,7 @@ export default function Home() {
           <span>Scroll</span>
           <div className="hero__scroll-line" />
         </div>
+
       </section>
 
       {/* STRIP */}

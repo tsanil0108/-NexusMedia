@@ -2,15 +2,16 @@ import React, { useEffect, useRef } from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import './styles/global.css';
 
-import Navbar   from './components/Navbar/Navbar';
-import Footer   from './components/Footer/Footer';
-import Home     from './components/Home/Home';
-import About    from './components/About/About';
-import Vision   from './components/Vision/Vision';
-import Process  from './components/Process/Process';
-import Services from './components/Services/Services';
-import Clients  from './components/Clients/Clients';
-import Contact  from './components/Contact/Contact';
+import Navbar         from './components/Navbar/Navbar';
+import Footer         from './components/Footer/Footer';
+import Home           from './components/Home/Home';
+import About          from './components/About/About';
+import Vision         from './components/Vision/Vision';
+import Process        from './components/Process/Process';
+import Services       from './components/Services/Services';
+import Clients        from './components/Clients/Clients';
+import Contact        from './components/Contact/Contact';
+import WhatsAppButton from './components/WhatsAppButton/WhatsAppButton';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -64,6 +65,7 @@ function AppInner() {
         </Routes>
       </main>
       <Footer />
+      <WhatsAppButton />
     </>
   );
 }

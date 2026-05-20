@@ -16,30 +16,26 @@
 /* ─── BRAND COL ──────────────────────────────────────────── */
 .footer__logo {
   display: flex;
-  align-items: center;
-  gap: 10px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
   text-decoration: none;
   margin-bottom: 20px;
 }
 
-.footer__logo-mark {
-  width: 32px; height: 32px;
-  background: var(--accent);
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--font-body);
-  font-size: 15px;
-  font-weight: 700;
-  color: #fff;
-  box-shadow: 0 4px 14px var(--accent-glow);
+.footer__logo-img {
+  height: 48px;
+  width: 48px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid var(--border);
+  mix-blend-mode: multiply;
 }
 
-.footer__logo-text {
+.footer__logo-name {
   font-family: var(--font-display);
   font-size: 18px;
-  font-weight: 400;
+  font-weight: 500;
   color: var(--text);
   letter-spacing: -0.01em;
 }

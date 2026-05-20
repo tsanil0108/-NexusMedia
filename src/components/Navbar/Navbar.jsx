@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import './Navbar.css';
+import logo from '../../assets/logo.png';
 
 const links = [
   { to: '/',         label: 'Home'     },
@@ -28,8 +29,7 @@ export default function Navbar() {
     <header className={`navbar${scrolled ? ' navbar--scrolled' : ''}`}>
       <div className="navbar__inner container">
         <Link to="/" className="navbar__logo">
-          <span className="navbar__logo-mark">N</span>
-          <span className="navbar__logo-text">NexusMedia</span>
+          <img src={logo} alt="Influgrow Media" className="navbar__logo-img" />
         </Link>
 
         <nav className="navbar__links">

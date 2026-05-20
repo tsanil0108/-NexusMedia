@@ -4,24 +4,47 @@
   justify-content: flex-end; padding-bottom: 80px;
   position: relative; overflow: hidden;
 }
-.hero__bg {
+
+/* Sliding images */
+.hero__slide {
   position: absolute; inset: 0;
-  background: radial-gradient(ellipse 70% 55% at 70% 35%, rgba(200,241,53,0.055) 0%, transparent 65%);
-  pointer-events: none;
+  background-size: cover; background-position: center;
+  opacity: 0;
+  animation: heroSlide 25s linear infinite;
+  transform: scale(1.08);
 }
-.hero__grid {
+.hero__slide:nth-child(1) { animation-delay: 0s;  }
+.hero__slide:nth-child(2) { animation-delay: 5s;  }
+.hero__slide:nth-child(3) { animation-delay: 10s; }
+.hero__slide:nth-child(4) { animation-delay: 15s; }
+.hero__slide:nth-child(5) { animation-delay: 20s; }
+
+@keyframes heroSlide {
+  0%   { opacity: 0; transform: scale(1.08); }
+  5%   { opacity: 1; transform: scale(1.05); }
+  20%  { opacity: 1; transform: scale(1.00); }
+  25%  { opacity: 0; transform: scale(0.98); }
+  100% { opacity: 0; transform: scale(0.98); }
+}
+
+/* Dark overlay */
+.hero__overlay {
   position: absolute; inset: 0;
-  background-image:
-    linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
-  background-size: 64px 64px; pointer-events: none;
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.30) 0%,
+    rgba(0,0,0,0.50) 50%,
+    rgba(0,0,0,0.72) 100%
+  );
+  z-index: 1;
 }
 
 /* Ticker */
 .hero__ticker {
   width: 100%; overflow: hidden;
-  border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
-  padding: 13px 0; margin-bottom: 72px; position: relative; z-index: 1;
+  border-top: 1px solid rgba(255,255,255,0.12);
+  border-bottom: 1px solid rgba(255,255,255,0.12);
+  padding: 13px 0; margin-bottom: 72px; position: relative; z-index: 2;
 }
 .hero__ticker-track {
   display: flex; gap: 36px; white-space: nowrap;
@@ -31,34 +54,35 @@
   from { transform: translateX(0); }
   to   { transform: translateX(-50%); }
 }
-.hero__ticker-item { font-size: 11px; color: var(--text3); letter-spacing: 0.1em; text-transform: uppercase; font-weight: 500; }
+.hero__ticker-item { font-size: 11px; color: rgba(255,255,255,0.5); letter-spacing: 0.1em; text-transform: uppercase; font-weight: 500; }
 .hero__ticker-sep  { color: var(--accent); }
 
 /* Hero content */
-.hero__inner { position: relative; z-index: 1; }
+.hero__inner { position: relative; z-index: 2; }
 .hero__eyebrow { display: flex; align-items: center; gap: 14px; margin-bottom: 32px; }
 .hero__eyebrow-line { display: block; width: 36px; height: 1px; background: var(--accent); }
-.hero__eyebrow-text { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text3); font-weight: 500; }
+.hero__eyebrow-text { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.6); font-weight: 500; }
 
 .hero__title {
   font-size: clamp(56px, 9vw, 110px); font-weight: 800;
   line-height: 0.9; letter-spacing: -0.045em;
   margin-bottom: 56px; display: flex; flex-direction: column;
+  color: #ffffff;
 }
 .hero__title .accent { color: var(--accent); }
 .hero__title-line   { display: block; }
 
 .hero__bottom { display: flex; justify-content: space-between; align-items: flex-end; gap: 40px; flex-wrap: wrap; }
-.hero__desc   { max-width: 420px; font-size: 15px; line-height: 1.8; color: var(--text2); font-weight: 300; }
+.hero__desc   { max-width: 420px; font-size: 15px; line-height: 1.8; color: rgba(255,255,255,0.75); font-weight: 300; }
 .hero__actions { display: flex; gap: 14px; flex-shrink: 0; }
 
 /* Scroll hint */
 .hero__scroll {
   position: absolute; bottom: 36px; right: 40px;
-  display: flex; flex-direction: column; align-items: center; gap: 10px; z-index: 1;
+  display: flex; flex-direction: column; align-items: center; gap: 10px; z-index: 2;
 }
-.hero__scroll span { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text3); writing-mode: vertical-rl; }
-.hero__scroll-line { width: 1px; height: 48px; background: linear-gradient(to bottom, var(--text3), transparent); animation: scrollPulse 2s ease-in-out infinite; }
+.hero__scroll span { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.45); writing-mode: vertical-rl; }
+.hero__scroll-line { width: 1px; height: 48px; background: linear-gradient(to bottom, rgba(255,255,255,0.45), transparent); animation: scrollPulse 2s ease-in-out infinite; }
 @keyframes scrollPulse { 0%,100% { opacity: .35; } 50% { opacity: 1; } }
 
 /* Strip */
