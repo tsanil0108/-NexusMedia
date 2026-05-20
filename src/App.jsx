@@ -11,7 +11,7 @@ import Process        from './components/Process/Process';
 import Services       from './components/Services/Services';
 import Clients        from './components/Clients/Clients';
 import Contact        from './components/Contact/Contact';
-import WhatsAppButton from './components/WhatsAppButton/WhatsAppButton';
+import WhatsAppButton from './components/Whatsappbutton/Whatsappbutton';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
