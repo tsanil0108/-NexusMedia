@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './BrandActivation.css';
+import './Brandactivation.css';
 
 const stats = [
   { num: '60+',  label: 'Events Executed'    },

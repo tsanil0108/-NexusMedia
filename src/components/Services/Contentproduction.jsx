@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './ContentProduction.css';
+import './Contentproduction.css';
 
 const stats = [
   { num: '500+', label: 'Videos Produced'     },
