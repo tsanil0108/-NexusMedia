@@ -14,8 +14,13 @@ const nav = [
 ];
 
 const services = [
-  'Digital Marketing', 'Influencer Marketing', 'Content Production',
-  'Brand Activation',  'Performance Marketing', 'Strategy & Consulting',
+  { label: 'Digital Marketing',     to: '/services/digital-marketing'    },
+  { label: 'Influencer Marketing',  to: '/services/influencer-marketing' },
+  { label: 'Content Production',    to: '/services/content-production'   },
+  { label: 'Brand Activation',      to: '/services/brand-activation'     },
+  { label: 'Performance Marketing', to: '/services/performance-marketing'},
+  { label: 'Strategy & Consulting', to: '/services/strategy-consulting'  },
+  { label: 'Tech & Web Development',to: '/services/tech-web-development' },
 ];
 
 export default function Footer() {
@@ -50,7 +55,7 @@ export default function Footer() {
           <div className="footer__col">
             <h6 className="footer__col-title">Services</h6>
             {services.map(s => (
-              <span key={s} className="footer__link footer__link--plain">{s}</span>
+              <Link key={s.to} to={s.to} className="footer__link">{s.label}</Link>
             ))}
           </div>
 

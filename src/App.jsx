@@ -2,16 +2,23 @@ import React, { useEffect, useRef } from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import './styles/global.css';
 
-import Navbar         from './components/Navbar/Navbar';
-import Footer         from './components/Footer/Footer';
-import Home           from './components/Home/Home';
-import About          from './components/About/About';
-import Vision         from './components/Vision/Vision';
-import Process        from './components/Process/Process';
-import Services       from './components/Services/Services';
-import Clients        from './components/Clients/Clients';
-import Contact        from './components/Contact/Contact';
-import WhatsAppButton from './components/Whatsappbutton/Whatsappbutton';
+import Navbar              from './components/Navbar/Navbar';
+import Footer              from './components/Footer/Footer';
+import Home                from './components/Home/Home';
+import About               from './components/About/About';
+import Vision              from './components/Vision/Vision';
+import Process             from './components/Process/Process';
+import Services            from './components/Services/Services';
+import Clients             from './components/Clients/Clients';
+import Contact             from './components/Contact/Contact';
+import WhatsAppButton      from './components/Whatsappbutton/Whatsappbutton';
+import DigitalMarketing    from './components/Services/Digitalmarketing';
+import InfluencerMarketing from './components/Services/Influencermarketing';
+import ContentProduction   from './components/Services/Contentproduction';
+import BrandActivation     from './components/Services/Brandactivation';
+import PerformanceMarketing from './components/Services/Performancemarketing';
+import StrategyConsulting  from './components/Services/Strategyconsulting';
+import TechWebDevelopment  from './components/Services/Techwebdevelopment';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -55,13 +62,20 @@ function AppInner() {
       <Navbar />
       <main>
         <Routes>
-          <Route path="/"         element={<Home />}     />
-          <Route path="/about"    element={<About />}    />
-          <Route path="/services" element={<Services />} />
-          <Route path="/vision"   element={<Vision />}   />
-          <Route path="/process"  element={<Process />}  />
-          <Route path="/clients"  element={<Clients />}  />
-          <Route path="/contact"  element={<Contact />}  />
+          <Route path="/"                              element={<Home />}                />
+          <Route path="/about"                         element={<About />}               />
+          <Route path="/services"                      element={<Services />}            />
+          <Route path="/services/digital-marketing"    element={<DigitalMarketing />}    />
+          <Route path="/services/influencer-marketing" element={<InfluencerMarketing />} />
+          <Route path="/services/content-production"   element={<ContentProduction />}   />
+          <Route path="/services/brand-activation"     element={<BrandActivation />}     />
+          <Route path="/services/performance-marketing"element={<PerformanceMarketing />}/>
+          <Route path="/services/strategy-consulting"  element={<StrategyConsulting />}  />
+          <Route path="/services/tech-web-development" element={<TechWebDevelopment />}  />
+          <Route path="/vision"                        element={<Vision />}              />
+          <Route path="/process"                       element={<Process />}             />
+          <Route path="/clients"                       element={<Clients />}             />
+          <Route path="/contact"                       element={<Contact />}             />
         </Routes>
       </main>
       <Footer />

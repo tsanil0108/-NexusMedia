@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import './Home.css';
 
@@ -38,15 +38,18 @@ const services = [
   { icon: '🚀', name: 'Brand Activation'    },
 ];
 
+/* BG image for sections that need a textured backdrop */
+const SECTION_BG = 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=1800&q=60';
+const CTA_BG     = 'https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=1800&q=60';
+
 export default function Home() {
   const doubled = [...tickerItems, ...tickerItems];
 
   return (
     <div className="page">
 
-      {/* HERO */}
+      {/* ─── HERO ─────────────────────────────────── */}
       <section className="hero">
-
         {heroImages.map((img, i) => (
           <div
             key={i}
@@ -55,6 +58,9 @@ export default function Home() {
           />
         ))}
         <div className="hero__overlay" />
+
+        {/* colour splash vignette */}
+        <div className="hero__vignette" />
 
         <div className="hero__ticker">
           <div className="hero__ticker-track">
@@ -93,12 +99,16 @@ export default function Home() {
           <span>Scroll</span>
           <div className="hero__scroll-line" />
         </div>
-
       </section>
 
-      {/* STRIP */}
-      <div className="home__strip">
-        <div className="container">
+      {/* ─── STRIP ────────────────────────────────── */}
+      {/* subtle office texture behind the strip */}
+      <div
+        className="home__strip"
+        style={{ backgroundImage: `url(${SECTION_BG})` }}
+      >
+        <div className="home__strip-backdrop" />
+        <div className="container" style={{ position: 'relative', zIndex: 1 }}>
           <div className="home__strip-grid">
             {strips.map((s, i) => (
               <div className="home__strip-item" key={i}>
@@ -111,9 +121,12 @@ export default function Home() {
         </div>
       </div>
 
-      {/* STATS */}
+      {/* ─── STATS ────────────────────────────────── */}
       <div className="home__stats">
         <div className="container">
+          <div className="home__stats-label">
+            <span className="tag">By the numbers</span>
+          </div>
           <div className="home__stats-grid">
             {stats.map((s, i) => (
               <div className="home__stat" key={i}>
@@ -125,9 +138,11 @@ export default function Home() {
         </div>
       </div>
 
-      {/* SERVICES PREVIEW */}
+      {/* ─── SERVICES PREVIEW ─────────────────────── */}
       <section className="home__services">
-        <div className="container">
+        <div className="home__services-bg" style={{ backgroundImage: `url(${SECTION_BG})` }} />
+        <div className="home__services-bg-mask" />
+        <div className="container" style={{ position: 'relative', zIndex: 1 }}>
           <div className="home__services-head">
             <div>
               <span className="tag">What We Do</span>
@@ -146,16 +161,22 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CTA */}
+      {/* ─── CTA ──────────────────────────────────── */}
       <section className="home__cta">
         <div className="container">
-          <div className="home__cta-inner">
-            <span className="tag">Ready to grow?</span>
-            <h2 className="section-title">Let's build something great together</h2>
-            <p className="section-desc">Tell us about your brand. We'll get back to you within 24 hours.</p>
-            <div className="home__cta-actions">
-              <Link to="/contact"  className="btn-primary">Get in Touch →</Link>
-              <Link to="/services" className="btn-outline">See Our Services</Link>
+          <div
+            className="home__cta-inner"
+            style={{ backgroundImage: `url(${CTA_BG})` }}
+          >
+            <div className="home__cta-overlay" />
+            <div className="home__cta-content">
+              <span className="tag tag--light">Ready to grow?</span>
+              <h2 className="section-title home__cta-heading">Let's build something great together</h2>
+              <p className="section-desc home__cta-desc">Tell us about your brand. We'll get back to you within 24 hours.</p>
+              <div className="home__cta-actions">
+                <Link to="/contact"  className="btn-primary">Get in Touch →</Link>
+                <Link to="/services" className="btn-ghost">See Our Services</Link>
+              </div>
             </div>
           </div>
         </div>
