@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './TechWebdevelopment.css';
+import './TechWebDevelopment.css';
 
 const stats = [
   { num: '80+',  label: 'Sites Launched'       },

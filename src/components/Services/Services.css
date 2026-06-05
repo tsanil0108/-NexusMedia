@@ -1,7 +1,7 @@
 /* ═══════════════════════════════════════════════════════
    SERVICES.CSS  — Orange/Amber theme, full redesign
    ═══════════════════════════════════════════════════════ */
-@import './Servicetokens';
+@import './Servicetokens.css';
 
 /* ── Eyebrow override uses token ── */
 .svc-eyebrow { color: var(--svc-accent); }
