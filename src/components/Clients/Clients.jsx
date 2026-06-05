@@ -8,7 +8,7 @@ import creatureFilm    from '../../assets/Creature Film Company.png';
 import finnetMedia     from '../../assets/Finnet Media Private Limited.png';
 import flipkart        from '../../assets/flipkart.png';
 import insync          from '../../assets/insync.jpg';
-import jitendraKumar   from '../../assets/jitendra Kumar.jpg';
+import jitendraKumar   from '../../assets/jitendra kumar.jpg';
 import kinnectMedia    from '../../assets/Kinnect Media.jpg';
 import madhouse        from '../../assets/Madhouse_Logo-XisIk323.jpeg';
 import navarasaFilms   from '../../assets/Navarasa Films.jpg';
