@@ -39,9 +39,9 @@ export default function Footer() {
               Building brands that actually matter.
             </p>
             <div className="footer__contact-mini">
-              <span>📍 Mumbai, Maharashtra</span>
-              <span>📧 hello@influgrowmedia.in</span>
-              <span>📞 +91 98765 43210</span>
+              <span>📍  A-101, New India Chamber, Cross Road, Off MIDC, Behind Onida House, Andheri (East), Mumbai-400097</span>
+              <span>📧 influgrowmedia@gmail.com</span>
+              <span>📞 +91 9768008679</span>
             </div>
           </div>
 

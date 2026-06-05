@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import './Contact.css';
 
 const infos = [
-  { icon: '📍', title: 'Location',      desc: 'Mumbai, Maharashtra, India' },
-  { icon: '📧', title: 'Email',         desc: 'hello@nexusmedia.in' },
-  { icon: '📞', title: 'Phone',         desc: '+91 98765 43210' },
+  { icon: '📍', title: 'Location',      desc: 'A-101, New India Chamber, Cross Road, Off MIDC, Behind Onida House, Andheri (East), Mumbai-400097' },
+  { icon: '📧', title: 'Email',         desc: 'influgrowmedia@gmail.com' },
+  { icon: '📞', title: 'Phone',         desc: '+91 9768008679' },
   { icon: '🕐', title: 'Working Hours', desc: 'Mon – Sat, 9:00 AM – 7:00 PM' },
 ];
 
@@ -75,12 +75,12 @@ export default function Contact() {
                   <div className="form__row">
                     <div className="form__group">
                       <label>Your Name *</label>
-                      <input name="name" placeholder="Rahul Sharma" value={form.name} onChange={handleChange} />
+                      <input name="name" placeholder="Enter your name" value={form.name} onChange={handleChange} />
                       {errors.name && <span style={{ fontSize: 12, color: '#e25555' }}>{errors.name}</span>}
                     </div>
                     <div className="form__group">
                       <label>Email Address *</label>
-                      <input name="email" type="email" placeholder="rahul@brand.com" value={form.email} onChange={handleChange} />
+                      <input name="email" type="email" placeholder="Enter your email" value={form.email} onChange={handleChange} />
                       {errors.email && <span style={{ fontSize: 12, color: '#e25555' }}>{errors.email}</span>}
                     </div>
                   </div>

@@ -19,7 +19,7 @@ const links = [
   { to: '/services', label: 'Services', dropdown: true },
   { to: '/vision',   label: 'Vision'   },
   { to: '/process',  label: 'Process'  },
-  { to: '/clients',  label: 'Clients'  },
+  { to: '/clients',  label: ' Clients and Partners'  },
 ];
 
 export default function Navbar() {
@@ -58,10 +58,16 @@ export default function Navbar() {
   return (
     <header className={`navbar${scrolled ? ' navbar--scrolled' : ''}`}>
       <div className="navbar__inner container">
+
+        {/* Logo + Brand Name */}
         <Link to="/" className="navbar__logo">
           <img src={logo} alt="Influgrow Media" className="navbar__logo-img" />
+          <span className="navbar__brand-name">
+            <span className="brand-influ">Influ</span><span className="brand-grow">grow</span> <span className="brand-media">Media</span>
+          </span>
         </Link>
 
+        {/* Desktop Nav */}
         <nav className="navbar__links">
           {links.map(l => l.dropdown ? (
             <div
@@ -71,7 +77,6 @@ export default function Navbar() {
               onMouseEnter={() => setDropdownOpen(true)}
               onMouseLeave={() => setDropdownOpen(false)}
             >
-              {/* Click pe /services navigate, hover pe dropdown */}
               <button
                 className={`navbar__link navbar__link--btn${isServicesActive ? ' active' : ''}${dropdownOpen ? ' dropdown-open' : ''}`}
                 onClick={() => navigate('/services')}
@@ -80,18 +85,12 @@ export default function Navbar() {
                 {l.label}
                 <i className={`ti ti-chevron-down navbar__chevron${dropdownOpen ? ' rotated' : ''}`} />
               </button>
-
               <div className={`navbar__dropdown${dropdownOpen ? ' open' : ''}`}>
-                <Link to="/services" className="navbar__dropdown-all">
-                  All Services →
-                </Link>
+                <Link to="/services" className="navbar__dropdown-all">All Services →</Link>
                 <div className="navbar__dropdown-divider" />
                 {serviceLinks.map(s => (
-                  <Link
-                    key={s.to}
-                    to={s.to}
-                    className={`navbar__dropdown-link${location.pathname === s.to ? ' active' : ''}`}
-                  >
+                  <Link key={s.to} to={s.to}
+                    className={`navbar__dropdown-link${location.pathname === s.to ? ' active' : ''}`}>
                     {s.label}
                   </Link>
                 ))}
@@ -121,28 +120,31 @@ export default function Navbar() {
         <div className="navbar__mobile-inner">
           {links.map(l => l.dropdown ? (
             <div key={l.to} className="navbar__mobile-services">
-              <div className="navbar__mobile-services-row">
-                {/* Mobile: Services text click pe navigate */}
+              {/* Services row — full row toggles submenu, no navigation */}
+              <button
+                className={`navbar__mobile-services-toggle${isServicesActive ? ' active' : ''}`}
+                onClick={() => setMobileServicesOpen(o => !o)}
+              >
+                <span>Services</span>
+                <i className={`ti ti-chevron-down navbar__chevron${mobileServicesOpen ? ' rotated' : ''}`} />
+              </button>
+
+              <div className={`navbar__mobile-submenu${mobileServicesOpen ? ' open' : ''}`}>
+                {/* All Services link at top */}
                 <Link
                   to="/services"
-                  className={`navbar__mobile-link${isServicesActive ? ' active' : ''}`}
-                  style={{ flex: 1 }}
+                  className="navbar__mobile-sublink navbar__mobile-sublink--all"
+                  onClick={() => setOpen(false)}
                 >
-                  Services
+                  All Services →
                 </Link>
-                {/* Arrow button pe click karo submenu toggle ke liye */}
-                <button
-                  className="navbar__mobile-chevron-btn"
-                  onClick={() => setMobileServicesOpen(o => !o)}
-                  aria-label="Toggle services submenu"
-                >
-                  <i className={`ti ti-chevron-down navbar__chevron${mobileServicesOpen ? ' rotated' : ''}`} />
-                </button>
-              </div>
-              <div className={`navbar__mobile-submenu${mobileServicesOpen ? ' open' : ''}`}>
                 {serviceLinks.map(s => (
-                  <Link key={s.to} to={s.to}
-                    className={`navbar__mobile-sublink${location.pathname === s.to ? ' active' : ''}`}>
+                  <Link
+                    key={s.to}
+                    to={s.to}
+                    className={`navbar__mobile-sublink${location.pathname === s.to ? ' active' : ''}`}
+                    onClick={() => setOpen(false)}
+                  >
                     {s.label}
                   </Link>
                 ))}
@@ -154,7 +156,10 @@ export default function Navbar() {
               {l.label}
             </Link>
           ))}
-          <Link to="/contact" className="btn-primary" style={{ justifyContent: 'center', marginTop: 8 }}>
+
+          <Link to="/contact" className="btn-primary"
+            style={{ justifyContent: 'center', marginTop: 8 }}
+            onClick={() => setOpen(false)}>
             Get in Touch →
           </Link>
         </div>

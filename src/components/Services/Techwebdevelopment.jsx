@@ -19,12 +19,7 @@ const services = [
 ];
 
 const stack = [
-  { name: 'React', icon: 'ti-brand-react' },
-  { name: 'Next.js', icon: 'ti-brand-nextjs' },
-  { name: 'Node.js', icon: 'ti-brand-nodejs' },
-  { name: 'Shopify', icon: 'ti-shopping-bag' },
-  { name: 'WordPress', icon: 'ti-brand-wordpress' },
-  { name: 'Figma', icon: 'ti-brand-figma' },
+
 ];
 
 const process = [

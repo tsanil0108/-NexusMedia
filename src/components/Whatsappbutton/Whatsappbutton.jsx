@@ -1,7 +1,7 @@
 import React from 'react';
 import './Whatsappbutton.css';
 
-const WHATSAPP_NUMBER = '917304603314';
+const WHATSAPP_NUMBER = '9768008679';
 const WHATSAPP_MESSAGE = 'Hi! I would like to know more about your services.';
 
 export default function WhatsAppButton() {

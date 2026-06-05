@@ -7,16 +7,21 @@ import creatorsCube    from '../../assets/Creators Cube.jpg';
 import creatureFilm    from '../../assets/Creature Film Company.png';
 import finnetMedia     from '../../assets/Finnet Media Private Limited.png';
 import flipkart        from '../../assets/flipkart.png';
-import insync          from '../../assets/Insync.png';
-import jitendraKumar   from '../../assets/jitendra kumar.webp';
+import insync          from '../../assets/insync.jpg';
+import jitendraKumar   from '../../assets/jitendra Kumar.jpg';
 import kinnectMedia    from '../../assets/Kinnect Media.jpg';
 import madhouse        from '../../assets/Madhouse_Logo-XisIk323.jpeg';
-import navarasaFilms   from '../../assets/Navarasa_web_series.jpg';
+import navarasaFilms   from '../../assets/Navarasa Films.jpg';
 import pixemoStudios   from '../../assets/pixemostudios.png';
-import pocketAces      from '../../assets/Pocket Aces.png';
 import shahEnterprise  from '../../assets/Shahenterprise.png';
 import socialSamosa    from '../../assets/socialsamosa.jpg';
 import theTravelSouk   from '../../assets/The Travel Souk.jpg';
+import packFilms       from '../../assets/PackFilms .jpg';
+import blueprint       from '../../assets/blueprint.jpg';
+import lightsCamera    from '../../assets/Lights camera digital.jpg';
+import oneUpMotion     from '../../assets/one up motion pictures.jpg';
+import tocm            from '../../assets/TOCM.jpg';
+import arunMathew      from '../../assets/Arun Mathew photography.jpg';
 
 // ─── Hero Slideshow Images ────────────────────────────────────
 const heroImages = [
@@ -36,36 +41,41 @@ const stats = [
   { num: 98,  suffix: '%',   label: 'Client Retention'    },
 ];
 
-// ─── Brands ───────────────────────────────────────────────────
-// 15 brands have local assets; 9 use Unsplash placeholders.
-// To replace a placeholder: add the image to src/assets/ and import it above.
+// ─── Brands — ALL local assets ───────────────────────────────
+// type: 'logo' = use contain | type: 'photo' = use cover | type: 'text' = initials fallback
 const brands = [
-  { name: 'Flipkart',                     type: 'E-Commerce',         dot: 'dot-indigo', img: flipkart },
-  { name: 'Bohemian Arcade',              type: 'Entertainment',      dot: 'dot-lime',   img: bohemianArcade },
-  { name: 'Creators Cube',                type: 'Creator Studio',     dot: 'dot-lime',   img: creatorsCube },
-  { name: 'Creature Film Company',        type: 'Film Production',    dot: 'dot-coral',  img: creatureFilm },
-  { name: 'Finnet Media Private Limited', type: 'Media & Finance',    dot: 'dot-indigo', img: finnetMedia },
-  { name: 'Insync',                       type: 'Agency',             dot: 'dot-teal',   img: insync },
-  { name: 'Jitendra Kumar',               type: 'Creator',            dot: 'dot-amber',  img: jitendraKumar },
-  { name: 'Kinnect Media',                type: 'Media Agency',       dot: 'dot-pink',   img: kinnectMedia },
-  { name: 'MAD House Media',              type: 'Media',              dot: 'dot-violet', img: madhouse },
-  { name: 'Navarasa Films',               type: 'Film Production',    dot: 'dot-gold',   img: navarasaFilms },
-  { name: 'Pixemo Studios India Pvt Ltd', type: 'Studio',             dot: 'dot-teal',   img: pixemoStudios },
-  { name: 'Pocket Aces',                  type: 'Digital Content',    dot: 'dot-gold',   img: pocketAces },
-  { name: 'Shah Enterprise',              type: 'Enterprise',         dot: 'dot-indigo', img: shahEnterprise },
-  { name: 'Social Samosa',                type: 'Digital Media',      dot: 'dot-amber',  img: socialSamosa },
-  { name: 'The Travel Souk',              type: 'Travel & Lifestyle', dot: 'dot-pink',   img: theTravelSouk },
-  // ── No local image yet — Unsplash placeholders ──
-  { name: 'Pack Films Pvt Ltd',           type: 'Production',         dot: 'dot-violet', img: 'https://images.unsplash.com/photo-1485846234645-a62644f84728?w=400&q=70' },
-  { name: 'Lights Camera Digital',        type: 'Digital Media',      dot: 'dot-gold',   img: 'https://images.unsplash.com/photo-1524368535928-5b5e00ddc76b?w=400&q=70' },
-  { name: 'Kishan Pandya',                type: 'Creator',            dot: 'dot-pink',   img: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=400&q=70' },
-  { name: 'Rohit Kashiram Kharwar',       type: 'Creator',            dot: 'dot-coral',  img: 'https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=400&q=70' },
-  { name: 'Shenoya Fernandes',            type: 'Creator',            dot: 'dot-violet', img: 'https://images.unsplash.com/photo-1556761175-4b46a572b786?w=400&q=70' },
-  { name: 'One Up Motion Pictures LLP',   type: 'Film Production',    dot: 'dot-amber',  img: 'https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=400&q=70' },
-  { name: 'Bluprint',                     type: 'Agency',             dot: 'dot-coral',  img: 'https://images.unsplash.com/photo-1542744094-24638eff58bb?w=400&q=70' },
-  { name: 'TOCM Global Pvt Ltd',          type: 'Global Agency',      dot: 'dot-teal',   img: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=400&q=70' },
-  { name: 'AM Productions',               type: 'Production',         dot: 'dot-lime',   img: 'https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=400&q=70' },
+  { name: 'Flipkart',                     img: flipkart,       type: 'logo'  },
+  { name: 'Bohemian Arcade',              img: bohemianArcade, type: 'logo'  },
+  { name: 'Creators Cube',                img: creatorsCube,   type: 'logo'  },
+  { name: 'Creature Film Company',        img: creatureFilm,   type: 'logo'  },
+  { name: 'Finnet Media',                 img: finnetMedia,    type: 'logo'  },
+  { name: 'Insync',                       img: insync,         type: 'logo'  },
+  { name: 'Jitendra Kumar',               img: jitendraKumar,  type: 'photo' },
+  { name: 'Kinnect Media',                img: kinnectMedia,   type: 'logo'  },
+  { name: 'MAD House Media',              img: madhouse,       type: 'logo'  },
+  { name: 'Navarasa Films',               img: navarasaFilms,  type: 'logo'  },
+  { name: 'Pixemo Studios',               img: pixemoStudios,  type: 'logo'  },
+  { name: 'Pocket Aces',                  type: 'text', initials: 'PA', color: '#0d3b66' },
+  { name: 'Shah Enterprise',              img: shahEnterprise, type: 'logo'  },
+  { name: 'Social Samosa',                img: socialSamosa,   type: 'logo'  },
+  { name: 'The Travel Souk',              img: theTravelSouk,  type: 'logo'  },
+  { name: 'Pack Films',                   img: packFilms,      type: 'logo'  },
+  // No local asset yet — initials fallback
+  { name: 'Blueprint',                    img: blueprint,      type: 'logo'  },
+  { name: 'Lights Camera Digital',        img: lightsCamera,   type: 'logo'  },
+  { name: 'One Up Motion Pictures',       img: oneUpMotion,    type: 'logo'  },
+  { name: 'TOCM Global',                  img: tocm,           type: 'logo'  },
+  { name: 'Arun Mathew Photography',      img: arunMathew,     type: 'photo' },
+  { name: 'Kishan Pandya',               type: 'text', initials: 'KP', color: '#2e1a3a' },
+  { name: 'Rohit K. Kharwar',            type: 'text', initials: 'RK', color: '#3a1a1a' },
+  { name: 'Shenoya Fernandes',           type: 'text', initials: 'SF', color: '#1a2e3a' },
+  { name: 'AM Productions',             type: 'text', initials: 'AM', color: '#2a2a0d' },
 ];
+
+// Split brands into two rows for dual marquee
+const half = Math.ceil(brands.length / 2);
+const row1 = brands.slice(0, half);
+const row2 = brands.slice(half);
 
 // ─── Testimonials ─────────────────────────────────────────────
 const testimonials = [
@@ -112,22 +122,39 @@ function CountUp({ target, suffix }) {
   return <span ref={ref}>{val}<span className="stat-suffix">{suffix}</span></span>;
 }
 
-// ─── BrandCard Component ──────────────────────────────────────
-function BrandCard({ brand, index }) {
-  return (
-    <div className="brand__card">
-      <div className="brand__card-img-wrap">
-        <img src={brand.img} alt={brand.name} loading="lazy" />
-        <span className="brand__card-num">
-          {String(index + 1).padStart(2, '0')}
-        </span>
+// ─── LogoCircle Component ─────────────────────────────────────
+function LogoCircle({ brand }) {
+  if (brand.type === 'text') {
+    return (
+      <div
+        className="logo-circle logo-circle--text"
+        title={brand.name}
+        style={{ background: brand.color }}
+      >
+        <span className="logo-circle__initials">{brand.initials}</span>
       </div>
-      <div className="brand__card-body">
-        <div className="brand__card-name">
-          <span className={`brand__dot ${brand.dot}`} />
-          {brand.name}
-        </div>
-        <div className="brand__card-type">{brand.type}</div>
+    );
+  }
+  return (
+    <div
+      className={`logo-circle ${brand.type === 'photo' ? 'logo-circle--photo' : ''}`}
+      title={brand.name}
+    >
+      <img src={brand.img} alt={brand.name} loading="lazy" />
+    </div>
+  );
+}
+
+// ─── MarqueeRow Component ─────────────────────────────────────
+function MarqueeRow({ items, reverse = false }) {
+  // Duplicate items for seamless loop
+  const doubled = [...items, ...items, ...items];
+  return (
+    <div className={`marquee-row ${reverse ? 'marquee-row--reverse' : ''}`}>
+      <div className={`marquee-track ${reverse ? 'marquee-track--reverse' : ''}`}>
+        {doubled.map((brand, i) => (
+          <LogoCircle key={i} brand={brand} />
+        ))}
       </div>
     </div>
   );
@@ -177,16 +204,20 @@ export default function Clients() {
         </div>
       </section>
 
-      {/* BRAND PARTNERS GRID */}
+      {/* BRAND LOGO MARQUEE */}
       <section className="clients__brands-section">
         <div className="container">
           <span className="c-eyebrow">Partner Brands</span>
           <h2 className="clients__sec-title">24 Brands Across <em>India</em></h2>
-          <div className="clients__brands-grid">
-            {brands.map((brand, i) => (
-              <BrandCard key={i} brand={brand} index={i} />
-            ))}
-          </div>
+        </div>
+
+        {/* Full-bleed marquee — outside container so it spans edge to edge */}
+        <div className="logo-marquee-wrapper">
+          <MarqueeRow items={row1} reverse={false} />
+          <MarqueeRow items={row2} reverse={true} />
+        </div>
+
+        <div className="container">
           <p className="clients__trust">Trusted partners since 2020 · Mumbai, India</p>
         </div>
       </section>

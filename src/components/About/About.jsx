@@ -9,13 +9,6 @@ const heroImages = [
   'https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=1600&q=80',
 ];
 
-const galleryImages = [
-  { src: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80',  label: 'Our Team'          },
-  { src: 'https://images.unsplash.com/photo-1556761175-4b46a572b786?w=800&q=80',     label: 'Strategy Sessions'  },
-  { src: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=800&q=80',     label: 'Creative Work'      },
-  { src: 'https://images.unsplash.com/photo-1515187029135-18ee286d815b?w=800&q=80',  label: 'Brand Launches'     },
-];
-
 const team = [
   { name: 'Arjun Mehta',  role: 'Founder & CEO',          init: 'AM', color: '#7f77dd' },
   { name: 'Priya Nair',   role: 'Head of Strategy',        init: 'PN', color: '#ef9f27' },
@@ -23,21 +16,6 @@ const team = [
   { name: 'Simran Kaur',  role: 'Performance Lead',        init: 'SK', color: '#1d9e75' },
   { name: 'Kabir Shah',   role: 'Influencer Partnerships', init: 'KS', color: '#d4537e' },
   { name: 'Ananya Roy',   role: 'Content Studio Head',     init: 'AR', color: '#185fa5' },
-];
-
-const milestones = [
-  { year: '2020', event: 'Influgrow Media founded in Mumbai with a 3-person team and a bold vision.' },
-  { year: '2021', event: 'Crossed 10 brand partnerships. Launched our influencer vertical.'          },
-  { year: '2022', event: 'Full-service expansion — content production studio goes live.'             },
-  { year: '2023', event: '50+ brands, 3Cr+ audience reached. Named top agency in West India.'       },
-  { year: '2024', event: 'Launched programmatic & tech division. Team grows to 40+.'                },
-];
-
-const values = [
-  { icon: '🔥', title: 'Ownership',    desc: 'We treat every brand as if it were our own — no shortcuts, no excuses.' },
-  { icon: '💡', title: 'Curiosity',    desc: 'We question assumptions and look for smarter paths forward.' },
-  { icon: '🤝', title: 'Transparency', desc: 'Honest reporting, clear communication, no hidden agendas.' },
-  { icon: '📈', title: 'Impact',       desc: 'We measure ourselves by the growth we create for our clients.' },
 ];
 
 export default function About() {
@@ -62,62 +40,16 @@ export default function About() {
             </div>
             <div>
               <p className="about__hero-desc">
-                Influgrow Media was born in 2020 from one simple belief — brands deserve more than vanity metrics. We built a team of strategists, creators, and analysts who obsess over real outcomes.
+                Influgrow Media was built on one simple belief — brands deserve more than vanity metrics. That's why we've brought together a team of strategists, creators, and analysts focused on what truly matters: real, measurable growth.
               </p>
               <p className="about__hero-desc" style={{ marginTop: 16 }}>
-                From a 3-person garage setup in Mumbai to a 40-member full-service agency — our story is about staying scrappy, staying honest, and always delivering.
+                What started as a small setup in Mumbai has grown into a 20-member full-service agency driven by creativity, performance, and transparency. Our journey has always been about staying agile, staying authentic, and consistently delivering results that matter.
               </p>
               <div className="about__hero-btns">
                 <Link to="/contact"  className="btn-primary">Let's Talk →</Link>
                 <Link to="/services" className="btn-outline about__btn-light">What We Do</Link>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* GALLERY STRIP */}
-      <section className="about__gallery">
-        <div className="about__gallery-grid">
-          {galleryImages.map((g, i) => (
-            <div className="about__gallery-item" key={i}>
-              <img src={g.src} alt={g.label} className="about__gallery-img" />
-              <div className="about__gallery-label">{g.label}</div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* OUR VALUES */}
-      <section className="about__values">
-        <div className="container">
-          <span className="tag">What Drives Us</span>
-          <h2 className="section-title">Our Core Values</h2>
-          <div className="values__grid">
-            {values.map((v, i) => (
-              <div className="values__card" key={i}>
-                <div className="values__icon">{v.icon}</div>
-                <div className="values__title">{v.title}</div>
-                <div className="values__desc">{v.desc}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* TIMELINE */}
-      <section className="about__timeline">
-        <div className="container">
-          <span className="tag">Journey</span>
-          <h2 className="section-title">How We Got Here</h2>
-          <div className="timeline">
-            {milestones.map((m, i) => (
-              <div className="timeline__item" key={i}>
-                <span className="timeline__year">{m.year}</span>
-                <div className="timeline__dot" />
-                <p className="timeline__event">{m.event}</p>
-              </div>
-            ))}
           </div>
         </div>
       </section>
